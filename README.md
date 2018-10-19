@@ -1,0 +1,2 @@
+# jsMagicCal
+Pure Javascript Calculater
