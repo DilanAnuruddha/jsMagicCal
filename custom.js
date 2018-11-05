@@ -5,21 +5,31 @@ function createCal() {
     divUI.appendChild(numInput);
 
     var table = document.createElement("table");
-    for (var i = 0; i < 20; i++) {
-    
-        if(i%4==0){
-            var row=table.insertRow(i%4);
-            var cell=row.insertCell(0);
-        }else{
-            var cell=row.insertCell(i%4);
+    var symbols = ["C", "/", "X", "<--", "7", "8", "9", "-", "4", "5", "6", "+", "1", "2", "3", "=", "0", "0", ".", "="];
+    for (var i = 20; i > 0; i--) {
+        if (i % 4 == 0) {
+            var row = table.insertRow(i % 4);
+            var cell = row.insertCell(0);
+        } else {
+            var cell = row.insertCell(0);
         }
-       
-       
 
-       var button=document.createElement("button");
-       button.type="button";
-       button.innerHTML=i;
-       cell.appendChild(button);
+        var button = document.createElement("button");
+        button.type = "button";
+        button.innerHTML = symbols[i - 1];
+        if (i == 18) {
+            cell.colSpan = 2;
+            i--;
+            button.className = "hMerge";
+        }
+        if (i == 16) {
+            cell.rowSpan = 2;
+            button.className="vMerge"
+        }
+        cell.appendChild(button);
+        if (i == 20) {
+            row.deleteCell(0);
+        }
 
     }
     divUI.appendChild(table);
