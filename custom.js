@@ -1,6 +1,9 @@
 function createCal() {
+
     var numInput = document.createElement("input");
-    numInput.setAttribute("type", "text");
+    numInput.type="Text";
+    numInput.className="display";
+    //numInput.setAttribute("type", "text");
     var divUI = document.getElementById("UI");
     divUI.appendChild(numInput);
 
@@ -17,6 +20,8 @@ function createCal() {
         var button = document.createElement("button");
         button.type = "button";
         button.innerHTML = symbols[i - 1];
+        button.id=symbols[i-1];
+        button.setAttribute("onclick","calProcess()");
         if (i == 18) {
             cell.colSpan = 2;
             i--;
@@ -33,4 +38,8 @@ function createCal() {
 
     }
     divUI.appendChild(table);
+}
+
+function calProcess(input){
+alert("djhfkjdhf");
 }
